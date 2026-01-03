@@ -1,0 +1,21 @@
+:root {
+    --bg: #ffffff;
+    --text: #222;
+    --text-secondary: #666;
+    --header: #f5f5f5;
+    --border: #ddd;
+}
+
+[data-theme="dark"] {
+    --bg: #121212;
+    --text: #e0e0e0;
+    --text-secondary: #aaa;
+    --header: #1e1e1e;
+    --border: #333;
+}
+
+*,
+*::before,
+*::after {
+    transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+}

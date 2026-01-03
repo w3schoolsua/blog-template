@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Мій сайт публікацій</title>
+    <meta name="description" content="Публікації, статті та матеріали в хронологічному порядку.">
+
+    <!-- Правильний canonical для GitHub Pages -->
+    <link rel="canonical" href="https://username.github.io/repository/">
+
+    <!-- ✔ Підключення стилів -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/theme.css">
+
+    <!-- ✔ Підключення JS -->
+    <script defer src="assets/js/theme.js"></script>
+    <script defer src="assets/js/menu.js"></script>
+    <script defer src="assets/js/seo.js"></script>
+    <script defer src="assets/js/year.js"></script>
+</head>
+
+<body>
+
+<!-- ХЕДЕР САЙТУ -->
+<header class="site-header">
+    <div class="logo">
+        <!-- ✔ Логотип SVG -->
+        <img src="assets/img/logo.svg" alt="Мій Сайт">
+    </div>
+
+    <nav class="main-nav">
+        <!-- ✔ Внутрішні посилання -->
+        <a href="index.html">Головна</a>
+        <a href="about.html">Про сайт</a>
+        <a href="contacts.html">Контакти</a>
+    </nav>
+
+    <!-- ✔ Перемикач теми -->
+    <button id="themeToggle" class="theme-toggle">🌙</button>
+</header>
+
+<!-- ОСНОВНИЙ КОНТЕНТ -->
+<main class="content">
+
+    <!-- ✔ Фільтри (категорії + пошук) -->
+    <div class="filters">
+
+        <!-- Категорії -->
+        <!-- label тут не потрібен, бо select має свій placeholder -->
+        <select id="categoryFilter">
+            <option value="">Усі категорії</option>
+        </select>
+
+        <!-- Пошук -->
+        <input id="searchInput" class="search" placeholder="Пошук статей...">
+    </div>
+
+    <!-- Заголовок -->
+    <h1>Останні публікації</h1>
+
+    <!-- ✔ Список статей (сюди menu.js вставляє HTML) -->
+    <div id="articlesList" class="articles-list"></div>
+
+    <!-- ✔ Пагінація -->
+    <div id="pagination" class="pagination"></div>
+
+</main>
+
+<footer class="site-footer">
+    © <span id="yearRange"></span> Мій сайт публікацій.
+    Усі права захищені.
+    <a href="license.html" class="license-link">Ліцензія</a>
+    <span id="updatedInfo"></span>
+</footer>
+
+</body>
+</html>
