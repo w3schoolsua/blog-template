@@ -122,3 +122,65 @@ body {
     opacity: 0.5;
     cursor: default;
 }
+/* ===========================
+   ВЕРХНЯ ПАНЕЛЬ (ЛОГО + ТЕМА)
+=========================== */
+.top-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background: var(--header);
+    border-bottom: 1px solid var(--border);
+}
+
+/* Логотип + назва */
+.logo-block {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-img {
+    height: 28px;
+    margin-right: 10px;
+}
+
+.site-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* ===========================
+   ГОЛОВНЕ МЕНЮ (СТИКИ)
+=========================== */
+.main-nav {
+    display: flex;
+    gap: 20px;
+    padding: 10px 20px;
+    background: var(--header);
+    border-bottom: 1px solid var(--border);
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* Липке меню */
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Перемикач теми */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--text);
+}

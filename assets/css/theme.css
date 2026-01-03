@@ -19,3 +19,11 @@
 *::after {
     transition: background-color .25s ease, color .25s ease, border-color .25s ease;
 }
+
+.site-title {
+    transition: color .25s ease;
+}
+
+[data-theme="dark"] .site-title {
+    color: #e0e0e0;
+}

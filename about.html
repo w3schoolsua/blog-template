@@ -14,15 +14,37 @@
 </head>
 
 <body>
-<header class="site-header">
-    <div class="logo">Мій Сайт</div>
-    <nav class="main-nav">
-        <a href="index.html">Головна</a>
-        <a href="about.html">Про сайт</a>
-        <a href="contacts.html">Контакти</a>
-    </nav>
+
+<!-- ВЕРХНЯ ПАНЕЛЬ (ЛОГО + ТЕМА) -->
+<header class="top-header">
+
+    <!-- Логотип + назва сайту (клікабельні) -->
+    <a href="index.html" class="logo-block">
+        <img src="assets/img/logo.svg" alt="Logo" class="logo-img">
+        <span class="site-title">Blog Template</span>
+    </a>
+
+    <!-- Перемикач теми -->
     <button id="themeToggle" class="theme-toggle">🌙</button>
 </header>
+<!-- ===========================
+     ГОЛОВНЕ МЕНЮ (СТИКИ)
+=========================== -->
+<nav class="main-nav sticky-nav">
+    <!-- Головна -->
+    <a href="index.html">Головна</a>
+
+    <!-- Категорії -->
+    <a href="category-archive-blk.html">Архів БЛК</a>
+    <a href="category-news.html">Новини</a>
+    <a href="category-articles.html">Статті</a>
+    <a href="category-video.html">Відео</a>
+    <a href="category-photo.html">Фото</a>
+    <a href="category-announcements.html">Оголошення</a>
+
+    <!-- Про сайт -->
+    <a href="about.html">Про сайт</a>
+</nav>
 
 <main class="content">
     <h1>Про сайт</h1>
@@ -33,6 +55,7 @@
     © <span id="yearRange"></span> Мій сайт публікацій.
     Усі права захищені.
     <a href="license.html" class="license-link">Ліцензія</a>
+    <a href="contacts.html" class="footer-link">Контакти</a>
     <span id="updatedInfo"></span>
 </footer>
 </body>

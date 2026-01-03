@@ -12,7 +12,7 @@
     "date": "2025-01-15",
     "published": "2025-01-15",
     "url": "articles/2025-01-15-second.html",
-    "category": "Технічне",
+    "category": "Архів БЛК",
     "tags": ["структура", "меню"]
   },
   {
@@ -20,7 +20,7 @@
     "date": "2025-02-01",
     "published": "2025-02-01",
     "url": "articles/2025-02-01-third.html",
-    "category": "Технічне",
+    "category": "Архів БЛК",
     "tags": ["пагінація", "rss"]
   }
 ]
