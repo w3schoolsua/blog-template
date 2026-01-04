@@ -1,62 +1,129 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Про сайт</title>
-    <meta name="description" content="Інформація про цей сайт публікацій.">
+    <meta name="description" content="Інформація про сайт">
 
-    <link rel="stylesheet" href="assets/css/base.css">
+    <!-- Плавне завантаження сторінки -->
+    <style>
+        body { opacity: 0; transition: opacity .35s ease; }
+        body.page-loaded { opacity: 1; }
+    </style>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/base.css">
 
-    <script defer src="assets/js/theme.js"></script>
+    <!-- Автоматичне визначення теми -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem("theme");
+            if (saved) {
+                document.documentElement.setAttribute("data-theme", saved);
+                return;
+            }
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+        })();
+    </script>
+
+    <!-- Автоматичний рік у футері -->
     <script defer src="assets/js/year.js"></script>
 </head>
 
 <body>
 
-<!-- ВЕРХНЯ ПАНЕЛЬ (ЛОГО + ТЕМА) -->
+<!-- ХЕДЕР -->
 <header class="top-header">
+    <button class="burger-btn" id="burgerBtn">
+        <span></span><span></span><span></span>
+    </button>
 
-    <!-- Логотип + назва сайту (клікабельні) -->
     <a href="index.html" class="logo-block">
-        <img src="assets/img/logo.svg" alt="Logo" class="logo-img">
-        <span class="site-title">Blog Template</span>
+        <img src="img/logo.svg" class="logo-img" alt="Logo">
+        <span class="site-title">Мій сайт публікацій</span>
     </a>
 
-    <!-- Перемикач теми -->
     <button id="themeToggle" class="theme-toggle">🌙</button>
 </header>
-<!-- ===========================
-     ГОЛОВНЕ МЕНЮ (СТИКИ)
-=========================== -->
-<nav class="main-nav sticky-nav">
-    <!-- Головна -->
-    <a href="index.html">Головна</a>
 
-    <!-- Категорії -->
-    <a href="category-archive-blk.html">Архів БЛК</a>
+<!-- ГОРИЗОНТАЛЬНЕ МЕНЮ -->
+<nav class="main-nav" id="mainNav">
+    <a href="index.html">Головна</a>
+    <a href="category-archive.html">Архів БЛК</a>
     <a href="category-news.html">Новини</a>
     <a href="category-articles.html">Статті</a>
     <a href="category-video.html">Відео</a>
     <a href="category-photo.html">Фото</a>
-    <a href="category-announcements.html">Оголошення</a>
-
-    <!-- Про сайт -->
-    <a href="about.html">Про сайт</a>
+    <a href="category-ads.html">Оголошення</a>
+    <a href="about.html" class="active">Про сайт</a>
 </nav>
 
-<main class="content">
-    <h1>Про сайт</h1>
-    <p>Цей сайт створений для публікації статей у зручному та простому форматі.</p>
-</main>
+<!-- ОСНОВНИЙ КОНТЕНТ -->
+<div class="archive-layout">
 
+    <main class="archive-content">
+        <h2>Про сайт</h2>
+
+        <p>
+            Цей сайт створений для публікації статей, новин, відео та фото у зручному,
+            структурованому та сучасному форматі. Мета проєкту — забезпечити доступ
+            до якісної інформації, зібраної в одному місці, з акцентом на простоту,
+            швидкість та комфорт читання.
+        </p>
+
+        <p>
+            Дизайн сайту побудований таким чином, щоб бути максимально легким,
+            адаптивним та приємним для користувача. Усі сторінки мають єдину
+            стилістику, а темна та світла теми дозволяють комфортно переглядати
+            матеріали у будь-який час доби.
+        </p>
+
+        <p>
+            Проєкт постійно вдосконалюється, додаються нові можливості,
+            оптимізується структура та покращується зручність користування.
+        </p>
+
+        <p>
+            Якщо у вас є пропозиції або зауваження — будь ласка, зв’яжіться зі мною
+            через сторінку <a href="contacts.html">Контакти</a>.
+        </p>
+    </main>
+
+</div>
+
+<!-- ФУТЕР -->
 <footer class="site-footer">
-    © <span id="yearRange"></span> Мій сайт публікацій.
-    Усі права захищені.
-    <a href="license.html" class="license-link">Ліцензія</a>
+    © <span id="yearRange"></span> Шаблон сайту. Усі права захищені.<br>
+    <a href="license.html" class="license-link">Ліцензія</a> /
     <a href="contacts.html" class="footer-link">Контакти</a>
     <span id="updatedInfo"></span>
 </footer>
+
+<!-- Плавне завантаження -->
+<script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("page-loaded");
+    });
+</script>
+
+<!-- Перемикач теми -->
+<script src="assets/js/theme.js"></script>
+
+<!-- Бургер-меню -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.getElementById("burgerBtn");
+        const nav = document.getElementById("mainNav");
+
+        burger.addEventListener("click", () => {
+            const isOpen = burger.classList.toggle("open");
+            nav.classList.toggle("nav-open", isOpen);
+        });
+    });
+</script>
+
 </body>
 </html>

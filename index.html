@@ -1,93 +1,121 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Головна — Мій сайт публікацій</title>
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <script defer src="assets/js/theme.js"></script>
+  <script defer src="assets/js/year.js"></script>
+  <script defer src="assets/js/core.js"></script>
+  <script defer src="assets/js/posts.js"></script>
+  <script defer src="assets/js/archive-blk.js"></script>
+  <script defer src="assets/js/sidebar.js"></script>
+  <script defer src="assets/js/render.js"></script>
+  <script>
+    // Ініціалізація головної сторінки
+    document.addEventListener("DOMContentLoaded", async () => {
+      await loadCMSData();
 
-    <title>Мій сайт публікацій</title>
-    <meta name="description" content="Публікації, статті та матеріали в хронологічному порядку.">
+      // Роки в сайдбарі (на головній активний рік не обов'язковий)
+      renderYearSidebar(null);
 
-    <!-- Правильний canonical для GitHub Pages -->
-    <link rel="canonical" href="https://username.github.io/repository/">
+      // Беремо останні публікації з усіх категорій:
+      const latestGeneral = POSTS.getLatest(10);
+      const latestArchive = ARCHIVE_BLK.getLatest(10);
 
-    <!-- ✔ Підключення стилів -->
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/theme.css">
+      // Об'єднуємо, сортуємо, беремо 10
+      const all = latestGeneral.concat(latestArchive)
+              .sort((a, b) => new Date(b.date) - new Date(a.date))
+              .slice(0, 10);
 
-    <!-- ✔ Підключення JS -->
-    <script defer src="assets/js/theme.js"></script>
-    <script defer src="assets/js/menu.js"></script>
-    <script defer src="assets/js/seo.js"></script>
-    <script defer src="assets/js/year.js"></script>
+      renderPostList(all, "mainContent");
+    });
+  </script>
+  <script>
+    // Скрипт - автоматичне визначення теми за системою
+    (function() {
+      const saved = localStorage.getItem("theme");
+      if (saved) {
+        document.documentElement.setAttribute("data-theme", saved);
+        return;
+      }
+      // Автоматична системна тема
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+    })();
+  </script>
+  <style>
+    body {opacity: 0;transition: opacity .35s ease}
+    body.page-loaded {opacity: 1}
+  </style>
 </head>
 
 <body>
 
-<!-- ВЕРХНЯ ПАНЕЛЬ (ЛОГО + ТЕМА) -->
 <header class="top-header">
+  <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-    <!-- Логотип + назва сайту (клікабельні) -->
-    <a href="index.html" class="logo-block">
-        <img src="assets/img/logo.svg" alt="Logo" class="logo-img">
-        <span class="site-title">Blog Template</span>
-    </a>
-
-    <!-- Перемикач теми -->
-    <button id="themeToggle" class="theme-toggle">🌙</button>
+  <a href="index.html" class="logo-block">
+    <img src="img/logo.svg" class="logo-img" alt="Logo">
+    <span class="site-title">Мій сайт публікацій</span>
+  </a>
+  <button id="themeToggle" class="theme-toggle">🌙</button>
 </header>
-<!-- ===========================
-     ГОЛОВНЕ МЕНЮ (СТИКИ)
-=========================== -->
-<nav class="main-nav sticky-nav">
-    <!-- Головна -->
-    <a href="index.html">Головна</a>
 
-    <!-- Категорії -->
-    <a href="category-archive-blk.html">Архів БЛК</a>
-    <a href="category-news.html">Новини</a>
-    <a href="category-articles.html">Статті</a>
-    <a href="category-video.html">Відео</a>
-    <a href="category-photo.html">Фото</a>
-    <a href="category-announcements.html">Оголошення</a>
-
-    <!-- Про сайт -->
-    <a href="about.html">Про сайт</a>
+<nav class="main-nav" id="mainNav">
+  <a href="index.html">Головна</a>
+  <a href="category-archive.html">Архів БЛК</a>
+  <a href="category-news.html">Новини</a>
+  <a href="category-articles.html">Статті</a>
+  <a href="category-video.html">Відео</a>
+  <a href="category-photo.html">Фото</a>
+  <a href="category-ads.html">Оголошення</a>
+  <a href="about.html">Про сайт</a>
 </nav>
 
-<!-- ОСНОВНИЙ КОНТЕНТ -->
-<main class="content">
+<div class="archive-layout">
 
-    <!-- ✔ Фільтри (категорії + пошук) -->
-    <div class="filters">
+  <!-- Лівий сайдбар: роки -->
+  <aside class="archive-sidebar">
+    <h1>Роки</h1>
+    <div id="yearsSidebar"></div>
+  </aside>
 
-        <!-- Категорії -->
-        <!-- label тут не потрібен, бо select має свій placeholder -->
-        <select id="categoryFilter">
-            <option value="">Усі категорії</option>
-        </select>
+  <!-- Центр: 10 останніх публікацій -->
+  <main class="archive-content">
+    <h2>Останні публікації</h2>
+    <div id="mainContent"></div>
+  </main>
 
-        <!-- Пошук -->
-        <input id="searchInput" class="search" placeholder="Пошук статей...">
-    </div>
-
-    <!-- Заголовок -->
-    <h1>Останні публікації</h1>
-
-    <!-- ✔ Список статей (сюди menu.js вставляє HTML) -->
-    <div id="articlesList" class="articles-list"></div>
-
-    <!-- ✔ Пагінація -->
-    <div id="pagination" class="pagination"></div>
-
-</main>
+</div>
 
 <footer class="site-footer">
-    © <span id="yearRange"></span> Мій сайт публікацій.
-    Усі права захищені.
-    <a href="license.html" class="license-link">Ліцензія</a>
-    <a href="contacts.html" class="footer-link">Контакти</a>
-    <span id="updatedInfo"></span>
+  © <span id="yearRange"></span> Шаблон сайту. Усі права захищені.<br>
+  <a href="license.html" class="license-link">Ліцензія</a> / <a href="contacts.html" class="footer-link">Контакти</a>
+  <span id="updatedInfo"></span>
 </footer>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burgerBtn");
+    const nav = document.getElementById("mainNav");
+
+    burger.addEventListener("click", () => {
+      const isOpen = burger.classList.toggle("open");
+      nav.classList.toggle("nav-open", isOpen);
+    });
+  });
+</script>
+<script>
+  window.addEventListener("load", () => {
+    document.body.classList.add("page-loaded");
+  });
+</script>
 </body>
 </html>

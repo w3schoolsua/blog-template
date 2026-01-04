@@ -1,61 +1,182 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Контакти</title>
-    <meta name="description" content="Контактна інформація.">
+    <meta name="description" content="Контактна інформація сайту">
 
-    <link rel="stylesheet" href="assets/css/base.css">
+    <!-- Плавне завантаження сторінки -->
+    <style>
+        body { opacity: 0; transition: opacity .35s ease; }
+        body.page-loaded { opacity: 1; }
+    </style>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/base.css">
 
-    <script defer src="assets/js/theme.js"></script>
+    <!-- Автоматичне визначення теми -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem("theme");
+            if (saved) {
+                document.documentElement.setAttribute("data-theme", saved);
+                return;
+            }
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+        })();
+    </script>
+
+    <!-- Автоматичний рік у футері -->
     <script defer src="assets/js/year.js"></script>
 </head>
 
 <body>
-<!-- ВЕРХНЯ ПАНЕЛЬ (ЛОГО + ТЕМА) -->
-<header class="top-header">
 
-    <!-- Логотип + назва сайту (клікабельні) -->
+<!-- ХЕДЕР -->
+<header class="top-header">
+    <button class="burger-btn" id="burgerBtn">
+        <span></span><span></span><span></span>
+    </button>
+
     <a href="index.html" class="logo-block">
-        <img src="assets/img/logo.svg" alt="Logo" class="logo-img">
-        <span class="site-title">Blog Template</span>
+        <img src="img/logo.svg" class="logo-img" alt="Logo">
+        <span class="site-title">Мій сайт публікацій</span>
     </a>
 
-    <!-- Перемикач теми -->
     <button id="themeToggle" class="theme-toggle">🌙</button>
 </header>
-<!-- ===========================
-     ГОЛОВНЕ МЕНЮ (СТИКИ)
-=========================== -->
-<nav class="main-nav sticky-nav">
-    <!-- Головна -->
-    <a href="index.html">Головна</a>
 
-    <!-- Категорії -->
-    <a href="category-archive-blk.html">Архів БЛК</a>
+<!-- ГОРИЗОНТАЛЬНЕ МЕНЮ -->
+<nav class="main-nav" id="mainNav">
+    <a href="index.html">Головна</a>
+    <a href="category-archive.html">Архів БЛК</a>
     <a href="category-news.html">Новини</a>
     <a href="category-articles.html">Статті</a>
     <a href="category-video.html">Відео</a>
     <a href="category-photo.html">Фото</a>
-    <a href="category-announcements.html">Оголошення</a>
-
-    <!-- Про сайт -->
+    <a href="category-ads.html">Оголошення</a>
     <a href="about.html">Про сайт</a>
 </nav>
 
-<main class="content">
-    <h1>Контакти</h1>
-    <p>Email: example@example.com</p>
-</main>
+<!-- ОСНОВНИЙ КОНТЕНТ -->
+<div class="archive-layout">
 
+    <main class="archive-content">
+        <h2>Контакти</h2>
+
+        <p>
+            Якщо у вас є пропозиції, зауваження, питання або бажання співпрацювати —
+            ви можете зв’язатися зі мною за допомогою наведених нижче способів.
+        </p>
+
+        <h3>Email</h3>
+        <p>
+            <a href="mailto:example@mail.com">example@mail.com</a>
+        </p>
+
+        <h3>Зворотній зв’язок</h3>
+        <p>
+            Ви можете написати повідомлення через форму на сайті або надіслати листа на електронну адресу.
+        </p>
+        <h3>Форма зворотного зв’язку</h3>
+
+        <form id="contactForm" class="contact-form">
+
+            <label for="name">Ваше ім’я</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Ваш Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Повідомлення</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit" class="contact-submit">Надіслати</button>
+
+            <!-- Повідомлення про успіх -->
+            <div id="formSuccess" class="form-success">Ваше повідомлення надіслано!</div>
+
+        </form>
+
+        <h3>Соціальні мережі</h3>
+        <ul>
+            <li><a href="#" target="_blank">Facebook</a></li>
+            <li><a href="#" target="_blank">Instagram</a></li>
+            <li><a href="#" target="_blank">YouTube</a></li>
+        </ul>
+
+        <h3>Інші питання</h3>
+        <p>
+            Якщо вам потрібна додаткова інформація або консультація — звертайтеся у будь-який зручний спосіб.
+        </p>
+    </main>
+
+</div>
+
+<!-- ФУТЕР -->
 <footer class="site-footer">
-    © <span id="yearRange"></span> Мій сайт публікацій.
-    Усі права захищені.
-    <a href="license.html" class="license-link">Ліцензія</a>
+    © <span id="yearRange"></span> Шаблон сайту. Усі права захищені.<br>
+    <a href="license.html" class="license-link">Ліцензія</a> /
     <a href="contacts.html" class="footer-link">Контакти</a>
     <span id="updatedInfo"></span>
 </footer>
+
+<!-- Плавне завантаження -->
+<script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("page-loaded");
+    });
+</script>
+
+<!-- Перемикач теми -->
+<script src="assets/js/theme.js"></script>
+
+<!-- Бургер-меню -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.getElementById("burgerBtn");
+        const nav = document.getElementById("mainNav");
+
+        burger.addEventListener("click", () => {
+            const isOpen = burger.classList.toggle("open");
+            nav.classList.toggle("nav-open", isOpen);
+        });
+    });
+</script>
+
+<!-- Скрипт надсилання форми (email) - треба вставити реальний ID на formspree.io-->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const form = document.getElementById("contactForm");
+        const success = document.getElementById("formSuccess");
+
+        form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            const response = await fetch("https://formspree.io/f/maykzbqg", {
+                method: "POST",
+                body: formData,
+                headers: { "Accept": "application/json" }
+            });
+
+            if (response.ok) {
+                form.reset();
+                success.classList.add("show");
+
+                // Прибрати повідомлення через 5 секунд
+                setTimeout(() => {
+                    success.classList.remove("show");
+                }, 5000);
+            }
+        });
+
+    });
+</script>
 </body>
 </html>

@@ -1,60 +1,145 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-theme="light">
 <head>
     <meta charset="UTF-8">
-    <title>Ліцензія</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ліцензія</title>
+    <meta name="description" content="Ліцензійна інформація сайту">
 
-    <link rel="stylesheet" href="assets/css/base.css">
+    <!-- Плавне завантаження сторінки -->
+    <style>
+        body { opacity: 0; transition: opacity .35s ease; }
+        body.page-loaded { opacity: 1; }
+    </style>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/base.css">
 
-    <script defer src="assets/js/theme.js"></script>
+    <!-- Автоматичне визначення теми -->
+    <script>
+        (function() {
+            const saved = localStorage.getItem("theme");
+            if (saved) {
+                document.documentElement.setAttribute("data-theme", saved);
+                return;
+            }
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
+        })();
+    </script>
+
+    <!-- Автоматичний рік у футері -->
     <script defer src="assets/js/year.js"></script>
 </head>
 
 <body>
-<!-- ВЕРХНЯ ПАНЕЛЬ (ЛОГО + ТЕМА) -->
-<header class="top-header">
 
-    <!-- Логотип + назва сайту (клікабельні) -->
+<!-- ХЕДЕР -->
+<header class="top-header">
+    <button class="burger-btn" id="burgerBtn">
+        <span></span><span></span><span></span>
+    </button>
+
     <a href="index.html" class="logo-block">
-        <img src="assets/img/logo.svg" alt="Logo" class="logo-img">
-        <span class="site-title">Blog Template</span>
+        <img src="img/logo.svg" class="logo-img" alt="Logo">
+        <span class="site-title">Мій сайт публікацій</span>
     </a>
 
-    <!-- Перемикач теми -->
     <button id="themeToggle" class="theme-toggle">🌙</button>
 </header>
-<!-- ===========================
-     ГОЛОВНЕ МЕНЮ (СТИКИ)
-=========================== -->
-<nav class="main-nav sticky-nav">
-    <!-- Головна -->
-    <a href="index.html">Головна</a>
 
-    <!-- Категорії -->
-    <a href="category-archive-blk.html">Архів БЛК</a>
+<!-- ГОРИЗОНТАЛЬНЕ МЕНЮ -->
+<nav class="main-nav" id="mainNav">
+    <a href="index.html">Головна</a>
+    <a href="category-archive.html">Архів БЛК</a>
     <a href="category-news.html">Новини</a>
     <a href="category-articles.html">Статті</a>
     <a href="category-video.html">Відео</a>
     <a href="category-photo.html">Фото</a>
-    <a href="category-announcements.html">Оголошення</a>
-
-    <!-- Про сайт -->
+    <a href="category-ads.html">Оголошення</a>
     <a href="about.html">Про сайт</a>
 </nav>
 
-<main class="content">
-    <h1>Ліцензія</h1>
-    <p>Тут ти можеш розмістити текст ліцензії, умови використання або авторські права.</p>
-</main>
+<!-- ОСНОВНИЙ КОНТЕНТ -->
+<div class="archive-layout">
 
+    <main class="archive-content">
+        <h2>Ліцензія</h2>
+
+        <p>
+            Усі матеріали, опубліковані на цьому сайті, захищені авторським правом.
+            Використання текстів, зображень, відео та інших елементів дозволяється
+            лише за умови дотримання зазначених правил та збереження посилання на джерело.
+        </p>
+
+        <h3>Умови використання</h3>
+        <p>
+            Ви можете:
+        </p>
+        <ul>
+            <li>вільно переглядати матеріали сайту;</li>
+            <li>поширювати посилання на сторінки сайту;</li>
+            <li>цитувати матеріали з обов’язковим зазначенням джерела.</li>
+        </ul>
+
+        <p>
+            Забороняється:
+        </p>
+        <ul>
+            <li>копіювати матеріали без дозволу автора;</li>
+            <li>використовувати контент у комерційних цілях без письмової згоди;</li>
+            <li>вносити зміни у матеріали та видавати їх за власні.</li>
+        </ul>
+
+        <h3>Відповідальність</h3>
+        <p>
+            Адміністрація сайту не несе відповідальності за можливі неточності,
+            помилки або застарілі дані, що можуть міститися у матеріалах.
+            У разі виявлення помилок ви можете повідомити адміністратора сайту через сторінку
+            <a href="contacts.html">Контакти</a>.
+        </p>
+
+        <h3>Зворотній зв’язок</h3>
+        <p>
+            Якщо ви бажаєте отримати дозвіл на використання матеріалів або маєте
+            інші питання щодо ліцензії — звертайтеся через форму на сторінці
+            <a href="contacts.html">Контакти</a>.
+        </p>
+    </main>
+
+</div>
+
+<!-- ФУТЕР -->
 <footer class="site-footer">
-    © <span id="yearRange"></span> Мій сайт публікацій.
-    Усі права захищені.
-    <a href="license.html" class="license-link">Ліцензія</a>
+    © <span id="yearRange"></span> Шаблон сайту. Усі права захищені.<br>
+    <a href="license.html" class="license-link">Ліцензія</a> /
     <a href="contacts.html" class="footer-link">Контакти</a>
     <span id="updatedInfo"></span>
 </footer>
+
+<!-- Плавне завантаження -->
+<script>
+    window.addEventListener("load", () => {
+        document.body.classList.add("page-loaded");
+    });
+</script>
+
+<!-- Перемикач теми -->
+<script src="assets/js/theme.js"></script>
+
+<!-- Бургер-меню -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const burger = document.getElementById("burgerBtn");
+        const nav = document.getElementById("mainNav");
+
+        burger.addEventListener("click", () => {
+            const isOpen = burger.classList.toggle("open");
+            nav.classList.toggle("nav-open", isOpen);
+        });
+    });
+</script>
+
 </body>
 </html>
