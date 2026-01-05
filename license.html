@@ -5,18 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ліцензія</title>
     <meta name="description" content="Ліцензійна інформація сайту">
-
-    <!-- Плавне завантаження сторінки -->
-    <style>
-        body { opacity: 0; transition: opacity .35s ease; }
-        body.page-loaded { opacity: 1; }
-    </style>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/theme.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-
-    <!-- Автоматичне визначення теми -->
+    <meta name="keywords" content="ліцензія, інформація, сайт, білокуракине, білокуракинський, район, луганська">
+    <link rel="canonical" href="license.html">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <!-- Автоматичне визначення теми - прибрати миготіння -->
     <script>
         (function() {
             const saved = localStorage.getItem("theme");
@@ -28,32 +21,24 @@
             document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
         })();
     </script>
-
-    <!-- Автоматичний рік у футері -->
-    <script defer src="assets/js/year.js"></script>
 </head>
 
 <body>
-
-<!-- ХЕДЕР -->
 <header class="top-header">
     <button class="burger-btn" id="burgerBtn">
         <span></span><span></span><span></span>
     </button>
-
     <a href="index.html" class="logo-block">
         <img src="img/logo.svg" class="logo-img" alt="Logo">
-        <span class="site-title">Мій сайт публікацій</span>
+        <span class="site-title">Відрадне Чарівне</span>
     </a>
-
-    <button id="themeToggle" class="theme-toggle">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Перемикач теми">🌙</button>
 </header>
 
-<!-- ГОРИЗОНТАЛЬНЕ МЕНЮ -->
 <nav class="main-nav" id="mainNav">
     <a href="index.html">Головна</a>
-    <a href="category-archive.html">Архів БЛК</a>
-    <a href="category-news.html">Новини</a>
+    <a href="category-archive.html">Архів ЖБ</a>
+    <a href="category-news.html" class="active">Новини</a>
     <a href="category-articles.html">Статті</a>
     <a href="category-video.html">Відео</a>
     <a href="category-photo.html">Фото</a>
@@ -63,83 +48,37 @@
 
 <!-- ОСНОВНИЙ КОНТЕНТ -->
 <div class="archive-layout">
-
     <main class="archive-content">
         <h2>Ліцензія</h2>
-
-        <p>
-            Усі матеріали, опубліковані на цьому сайті, захищені авторським правом.
-            Використання текстів, зображень, відео та інших елементів дозволяється
-            лише за умови дотримання зазначених правил та збереження посилання на джерело.
-        </p>
-
+        <p>Усі матеріали, опубліковані на цьому сайті, захищені авторським правом. Використання текстів, зображень, відео та інших елементів дозволяється лише за умови дотримання зазначених правил та збереження посилання на джерело.</p>
         <h3>Умови використання</h3>
-        <p>
-            Ви можете:
-        </p>
+        <p>Ви можете:</p>
         <ul>
             <li>вільно переглядати матеріали сайту;</li>
             <li>поширювати посилання на сторінки сайту;</li>
             <li>цитувати матеріали з обов’язковим зазначенням джерела.</li>
         </ul>
-
-        <p>
-            Забороняється:
-        </p>
+        <p>Забороняється:</p>
         <ul>
             <li>копіювати матеріали без дозволу автора;</li>
-            <li>використовувати контент у комерційних цілях без письмової згоди;</li>
+            <li>використовувати контент у комерційних цілях без згоди адміністратора сайту;</li>
             <li>вносити зміни у матеріали та видавати їх за власні.</li>
         </ul>
-
         <h3>Відповідальність</h3>
-        <p>
-            Адміністрація сайту не несе відповідальності за можливі неточності,
-            помилки або застарілі дані, що можуть міститися у матеріалах.
-            У разі виявлення помилок ви можете повідомити адміністратора сайту через сторінку
-            <a href="contacts.html">Контакти</a>.
-        </p>
-
+        <p>Адміністрація сайту не несе відповідальності за можливі неточності, помилки або застарілі дані, що можуть міститися у матеріалах. У разі виявлення помилок ви можете повідомити адміністратора сайту через сторінку <a href="contacts.html">Контакти</a>.</p>
         <h3>Зворотній зв’язок</h3>
-        <p>
-            Якщо ви бажаєте отримати дозвіл на використання матеріалів або маєте
-            інші питання щодо ліцензії — звертайтеся через форму на сторінці
-            <a href="contacts.html">Контакти</a>.
-        </p>
+        <p>Якщо ви бажаєте отримати дозвіл на використання матеріалів або маєте інші питання щодо ліцензії — звертайтеся через форму на сторінці <a href="contacts.html">Контакти</a> або на email адміністратора сайту.</p>
     </main>
-
 </div>
-
-<!-- ФУТЕР -->
 <footer class="site-footer">
     © <span id="yearRange"></span> Шаблон сайту. Усі права захищені.<br>
-    <a href="license.html" class="license-link">Ліцензія</a> /
-    <a href="contacts.html" class="footer-link">Контакти</a>
+    <a href="license.html" class="license-link">Ліцензія</a> / <a href="contacts.html" class="footer-link">Контакти</a>
     <span id="updatedInfo"></span>
 </footer>
 
-<!-- Плавне завантаження -->
-<script>
-    window.addEventListener("load", () => {
-        document.body.classList.add("page-loaded");
-    });
-</script>
+<!-- Кнопка підняття вгору -->
+<button id="scrollTopBtn" class="scroll-top-btn" title="Нагору">↑</button>
 
-<!-- Перемикач теми -->
-<script src="assets/js/theme.js"></script>
-
-<!-- Бургер-меню -->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const burger = document.getElementById("burgerBtn");
-        const nav = document.getElementById("mainNav");
-
-        burger.addEventListener("click", () => {
-            const isOpen = burger.classList.toggle("open");
-            nav.classList.toggle("nav-open", isOpen);
-        });
-    });
-</script>
-
+<script defer src="scripts/all-scripts.js"></script>
 </body>
 </html>
