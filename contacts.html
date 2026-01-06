@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html lang="uk" data-theme="light">
+<html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Контакти</title>
-    <meta name="description" content="Контактна інформація сайту">
-
-    <!-- Плавне завантаження сторінки -->
-    <style>
-        body { opacity: 0; transition: opacity .35s ease; }
-        body.page-loaded { opacity: 1; }
-    </style>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/theme.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-
-    <!-- Автоматичне визначення теми -->
+    <title>Контакти - Адміністратор сайту Відрадне Чарівне</title>
+    <meta name="description" content="Як з&#8217;вязатись з адміністратором сайту Відардне Чарівне. Email. Контакти. Зворотній зв&#8217;язок">
+    <meta name="keywords" content="адміністратор, адмін, зворотній, зв&#8217;язок, email, контакти, лист, повідомлення, написати">
+    <link rel="canonical" href="contacts.html">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/theme.css">
+    <!-- Автоматичне визначення теми - прибрати миготіння -->
     <script>
         (function() {
             const saved = localStorage.getItem("theme");
@@ -28,124 +21,87 @@
             document.documentElement.setAttribute("data-theme", prefersDark ? "dark" : "light");
         })();
     </script>
-
-    <!-- Автоматичний рік у футері -->
-    <script defer src="assets/js/year.js"></script>
 </head>
 
 <body>
-
-<!-- ХЕДЕР -->
 <header class="top-header">
     <button class="burger-btn" id="burgerBtn">
         <span></span><span></span><span></span>
     </button>
-
     <a href="index.html" class="logo-block">
         <img src="img/logo.svg" class="logo-img" alt="Logo">
-        <span class="site-title">Мій сайт публікацій</span>
+        <span class="site-title">Відрадне Чарівне</span>
     </a>
-
-    <button id="themeToggle" class="theme-toggle">🌙</button>
+    <button id="themeToggle" class="theme-toggle" title="Перемикач теми">🌙</button>
 </header>
 
-<!-- ГОРИЗОНТАЛЬНЕ МЕНЮ -->
 <nav class="main-nav" id="mainNav">
     <a href="index.html">Головна</a>
-    <a href="category-jb.html">Архів БЛК</a>
+    <a href="category-jb.html">Архів ЖБ</a>
     <a href="category-news.html">Новини</a>
     <a href="category-articles.html">Статті</a>
     <a href="category-video.html">Відео</a>
     <a href="category-photo.html">Фото</a>
     <a href="category-ads.html">Оголошення</a>
+    <a href="category-creat.html">Творчість</a>
     <a href="about.html">Про сайт</a>
 </nav>
 
-<!-- ОСНОВНИЙ КОНТЕНТ -->
-<div class="archive-layout">
+<div class="adver_adup">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6358227327561384" crossorigin="anonymous"></script>
+    <!-- adup_gorizontal -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6358227327561384" data-ad-slot="5050829044" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
 
+<div class="archive-layout">
     <main class="archive-content">
         <h2>Контакти</h2>
-
-        <p>
-            Якщо у вас є пропозиції, зауваження, питання або бажання співпрацювати —
-            ви можете зв’язатися зі мною за допомогою наведених нижче способів.
-        </p>
-
+        <p>Якщо у вас є пропозиції, зауваження, питання або бажання співпрацювати — ви можете зв’язатися з адміністратором сайту за допомогою наведених нижче способів.</p>
         <h3>Email</h3>
-        <p>
-            <a href="mailto:example@mail.com">example@mail.com</a>
-        </p>
-
+        <p><a href="mailto:w3schoolsua@gmail.com">w3schoolsua@gmail.com</a></p>
         <h3>Зворотній зв’язок</h3>
-        <p>
-            Ви можете написати повідомлення через форму на сайті або надіслати листа на електронну адресу.
-        </p>
+        <p>Ви можете написати повідомлення через форму на сайті або надіслати листа на електронну адресу.</p>
         <h3>Форма зворотного зв’язку</h3>
-
         <form id="contactForm" class="contact-form">
-
             <label for="name">Ваше ім’я</label>
             <input type="text" id="name" name="name" required>
-
             <label for="email">Ваш Email</label>
             <input type="email" id="email" name="email" required>
-
             <label for="message">Повідомлення</label>
             <textarea id="message" name="message" rows="6" required></textarea>
-
             <button type="submit" class="contact-submit">Надіслати</button>
-
             <!-- Повідомлення про успіх -->
             <div id="formSuccess" class="form-success">Ваше повідомлення надіслано!</div>
-
         </form>
-
         <h3>Соціальні мережі</h3>
         <ul>
             <li><a href="#" target="_blank">Facebook</a></li>
             <li><a href="#" target="_blank">Instagram</a></li>
             <li><a href="#" target="_blank">YouTube</a></li>
         </ul>
-
         <h3>Інші питання</h3>
-        <p>
-            Якщо вам потрібна додаткова інформація або консультація — звертайтеся у будь-який зручний спосіб.
-        </p>
+        <p>Якщо вам потрібна додаткова інформація або консультація — звертайтеся у будь-який зручний спосіб.</p>
     </main>
-
 </div>
 
-<!-- ФУТЕР -->
+<div class="adver_addown">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6358227327561384" crossorigin="anonymous"></script>
+    <!-- addown_gorizontal -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6358227327561384" data-ad-slot="7281891662" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
 <footer class="site-footer">
-    © <span id="yearRange"></span> Шаблон сайту. Усі права захищені.<br>
-    <a href="license.html" class="license-link">Ліцензія</a> /
-    <a href="contacts.html" class="footer-link">Контакти</a>
+    © <span id="yearRange"></span> Відрадне Чарівне. Усі права захищені.<br>
+    <a href="license.html" class="license-link">Ліцензія</a> / <a href="contacts.html" class="footer-link">Контакти</a>
     <span id="updatedInfo"></span>
 </footer>
 
-<!-- Плавне завантаження -->
-<script>
-    window.addEventListener("load", () => {
-        document.body.classList.add("page-loaded");
-    });
-</script>
+<!-- Кнопка підняття вгору -->
+<button id="scrollTopBtn" class="scroll-top-btn" title="Нагору">↑</button>
 
-<!-- Перемикач теми -->
-<script src="assets/js/theme.js"></script>
-
-<!-- Бургер-меню -->
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const burger = document.getElementById("burgerBtn");
-        const nav = document.getElementById("mainNav");
-
-        burger.addEventListener("click", () => {
-            const isOpen = burger.classList.toggle("open");
-            nav.classList.toggle("nav-open", isOpen);
-        });
-    });
-</script>
+<script defer src="scripts/all-scripts.js"></script>
 
 <!-- Скрипт надсилання форми (email) - треба вставити реальний ID на formspree.io-->
 <script>
