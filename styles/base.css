@@ -170,14 +170,19 @@ hr {border: none;height: 1px;background-color: var(--hr-color);margin: 2rem 0}
 .left{float:left!important}
 .right{float:right!important}
 
-table {width:100%}
+/* Таблиця Зебра */
 table, th, td {border: 1px solid black; border-collapse: collapse}
 th {padding: 10px; text-align: center}
-td {padding: 5px; text-align: center;}
+td {padding: 5px; text-align: center}
 table.zebra tr:nth-child(even) {background-color: #333}
 table.zebra tr:nth-child(odd) {background-color: #666}
 table.zebra th {background-color: #666; color: white}
 tr.small8 {font-size: .8em}
+
+/* Адаптивна таблиця з горизонт. скролингом */
+.table-wrap {display: block;width: 100%;max-width: 100%;overflow-x: auto;overflow-y: hidden;-webkit-overflow-scrolling: touch;}
+.table-wrap table {width: max-content;min-width: 900px;border-collapse: collapse;table-layout: fixed;}
+.table-wrap th,.table-wrap td {white-space: normal;word-break: break-word;}
 
 /* Мобільна версія */
 @media (max-width: 900px) {
