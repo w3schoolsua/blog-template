@@ -50,6 +50,8 @@ a:visited {color: var(--link-visited)}
 }
 /* ОСНОВНИЙ МАКЕТ */
 .archive-layout {display: flex;gap: 20px;align-items: flex-start;padding: 20px 16px;max-width: 1200px;margin: 0 auto}
+/* FIX flex overflow */
+.archive-content {min-width: 0}
 
 /* На мобільних — прибираємо верхній відступ */
 @media (max-width: 900px) {.archive-layout {padding: 10px;margin-top: 0;flex-direction: column;}}
@@ -181,7 +183,7 @@ tr.small8 {font-size: .8em}
 
 /* Адаптивна таблиця з горизонт. скролингом */
 .table-wrap {display: block;width: 100%;max-width: 100%;overflow-x: auto;overflow-y: hidden;-webkit-overflow-scrolling: touch;}
-.table-wrap table {width: max-content;min-width: 900px;border-collapse: collapse;table-layout: fixed;}
+.table-wrap table {width: max-content;min-width: 900px;border-collapse: collapse;table-layout: auto;}
 .table-wrap th,.table-wrap td {white-space: normal;word-break: break-word;}
 
 /* Мобільна версія */
