@@ -172,6 +172,8 @@ hr {border: none;height: 1px;background-color: var(--hr-color);margin: 2rem 0}
 .left{float:left!important}
 .right{float:right!important}
 
+img.left {padding:5px 15px 5px 0}
+
 /* Таблиця Зебра */
 table, th, td {border: 1px solid black; border-collapse: collapse}
 th {padding: 10px; text-align: center}
