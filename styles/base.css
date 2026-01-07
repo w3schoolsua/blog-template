@@ -1,9 +1,9 @@
 /* БАЗОВІ НАЛАШТУВАННЯ */
 *, *::before, *::after {box-sizing: border-box}
 html, body {margin: 0;padding: 0}
-/* Плавне завантаження сторінки */
+/* Плавне завантаження сторінки
 body {opacity: 0;transition: opacity .35s ease}
-body.page-loaded {opacity: 1}
+body.page-loaded {opacity: 1}*/
 
 /* Плавне перемикання теми */
 html, body, .top-header, .main-nav, .archive-sidebar, .archive-content, .site-footer {transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease}
@@ -147,10 +147,6 @@ a:visited {color: var(--link-visited)}
 .post-content h2 {margin-top: 24px;margin-bottom: 12px;color: var(--text)}
 .post-content ul {margin-left: 20px;margin-bottom: 16px}
 
-/* Плавне завантаження сторінки - треба ставити в head html-сторінки */
-body {opacity: 0; transition: opacity .35s ease}
-body.page-loaded {opacity: 1}
-
 /* PAGER BUTTONS — FIX */
 .pager {display: flex !important;justify-content: space-between !important;margin: 1em 0 !important}
 a.pager-btn {display: inline-block !important;padding: 8px 14px !important;background-color: var(--pager-bg, #e0e0e0) !important;border: 1px solid var(--pager-border, #b5b5b5) !important;color: var(--pager-text, #000000) !important;border-radius: 4px !important;text-decoration: none !important; transition: background-color 0.15s ease, box-shadow 0.15s ease}
@@ -196,10 +192,10 @@ tr.small8 {font-size: .8em}
 .adver_adinarticle {display: block}
 .adver_adfooter {display:block}
 .adver_adinfeed {display:block}
-.adver {display:none!important;}
+.adver {display:none!important}
 .adver2 {display:block}
 .adver3 {display:block}
 .admedia-square-rightbar {display:block}
 .adver_admultiplex1 {display:block}
 .adver_admultiplex_rightbar1 {display:block}
-ins.adsbygoogle[data-ad-status="unfilled"] {display: none !important;} /*Приховати блок AdSense, якщо реклама не відображається*/
+ins.adsbygoogle[data-ad-status="unfilled"] {display: none !important} /*Приховати блок AdSense, якщо реклама не відображається*/
